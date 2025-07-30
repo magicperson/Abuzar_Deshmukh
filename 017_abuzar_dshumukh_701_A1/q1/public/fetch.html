@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch by ajax</title>
+</head>
+<body>
+    <button id="message" onclick="message()">get massage</button>
+    <p id="display"></p>
+    <script>
+        function message(){
+            fetch('/gethello')
+            .then(responce => responce.text())
+            .then(data => {
+                document.getElementById('display').innerText= data;
+            })
+            .catch((err) => {
+                document.getElementById("display").innerHTML = "Error: " + err;
+            });
+
+        }
+    </script>
+</body>
+</html>
